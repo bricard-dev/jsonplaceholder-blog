@@ -13,6 +13,9 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 interface PostListProps {}
 
 export default async function PostList({}: PostListProps) {
+  //
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+  //
   const posts = await fetchAllPostsWithUser();
   return (
     <ul className="flex flex-col gap-4">
