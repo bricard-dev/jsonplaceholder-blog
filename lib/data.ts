@@ -99,17 +99,19 @@ export async function fetchAllPostsWithUser(): Promise<PostWithUser[]> {
 /**
  * Fetches a post with its associated user by post ID.
  * @param postId The ID of the post to fetch.
- * @returns {Promise<PostWithUser>} A promise that resolves to a post with its associated user.
+ * @returns {Promise<PostWithUser>} A promise that resolves to a post with its own associated user.
  * @throws {Error} An error is thrown if the API request fails.
  */
-export async function fetchPostWithUser(postId: number): Promise<PostWithUser> {
+export async function fetchPostWithUserById(
+  postId: number
+): Promise<PostWithUser> {
   try {
     const post = await fetchPostById(postId);
     const user = await fetchUserById(post.userId);
     return { ...post, user };
   } catch (error) {
     console.error('API Error: ', error);
-    throw new Error('Failed to fetch post with user.');
+    throw new Error('Failed to fetch post with its own associated user.');
   }
 }
 
