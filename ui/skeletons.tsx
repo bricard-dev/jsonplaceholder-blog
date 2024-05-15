@@ -1,6 +1,6 @@
 import { Skeleton } from './ui/skeleton';
 
-export default function SkeletonPostList() {
+export function SkeletonPostList() {
   return (
     <ul className="flex flex-col gap-4">
       {Array.from({ length: 10 }).map((_, i) => (
@@ -16,5 +16,25 @@ export default function SkeletonPostList() {
         </li>
       ))}
     </ul>
+  );
+}
+
+export function SkeletonPostArticle() {
+  return (
+    <article>
+      <div className="mb-4 sm:mb-6 flex flex-col gap-2">
+        <Skeleton className="h-8 w-full" />
+        <Skeleton className="h-8 w-1/3" />
+      </div>
+      <div className="mb-6 sm:mb-8 pb-4 flex items-center gap-3 border-b">
+        <Skeleton className="h-10 w-10 rounded-full" />
+        <Skeleton className="h-4 w-1/3" />
+      </div>
+      <div className="flex flex-col gap-2">
+        <Skeleton className="h-5 w-full" />
+        <Skeleton className="h-5 w-full" />
+        <Skeleton className="h-5 w-2/3" />
+      </div>
+    </article>
   );
 }

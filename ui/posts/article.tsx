@@ -9,6 +9,9 @@ interface PostArticleProps {
 }
 
 export default async function PostArticle({ postId }: PostArticleProps) {
+  //
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  //
   const post = await fetchPostWithUserById(postId);
 
   const avatarImage = getUserAvatarImage(post.user.id);
