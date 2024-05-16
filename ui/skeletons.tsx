@@ -2,7 +2,7 @@ import { Skeleton } from './ui/skeleton';
 
 export function SkeletonPostList() {
   return (
-    <ul className="flex flex-col gap-4">
+    <ul className="mb-4 flex flex-col gap-4">
       {Array.from({ length: 10 }).map((_, i) => (
         <li key={i} className="pb-4 sm:pb-6 border-b">
           <div className="mb-1.5 sm:mb-2 flex items-center gap-2">

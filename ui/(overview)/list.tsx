@@ -1,4 +1,4 @@
-import { fetchAllPostsWithUser } from '@/lib/data';
+import { fetchPostsWithUserByPage } from '@/lib/data';
 import { PostWithUser } from '@/lib/definitions';
 import {
   capitalize,
@@ -10,15 +10,17 @@ import { noto_serif } from '@/styles/fonts';
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
-interface PostListProps {}
+interface PostListProps {
+  currentPage: number;
+}
 
-export default async function PostList({}: PostListProps) {
+export default async function PostList({ currentPage }: PostListProps) {
   //
   await new Promise((resolve) => setTimeout(resolve, 1000));
   //
-  const posts = await fetchAllPostsWithUser();
+  const posts = await fetchPostsWithUserByPage(currentPage);
   return (
-    <ul className="flex flex-col gap-4">
+    <ul className="mb-4 flex flex-col gap-4">
       {posts.map((post) => (
         <PostItem key={post.id} post={post} />
       ))}
