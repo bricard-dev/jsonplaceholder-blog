@@ -1,5 +1,5 @@
 import PostList from '@/ui/(overview)/list';
-import SkeletonPostList from '@/ui/skeletons';
+import { SkeletonPostList } from '@/ui/skeletons';
 import { Suspense } from 'react';
 
 export default function HomePage() {
