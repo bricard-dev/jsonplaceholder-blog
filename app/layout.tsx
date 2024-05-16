@@ -1,5 +1,6 @@
 import { inter } from '@/styles/fonts';
 import '@/styles/globals.css';
+import Header from '@/ui/header';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Header />
         <main className="max-w-2xl mx-auto">
           <div className="mx-6 pt-4 sm:pt-8 pb-10">{children}</div>
         </main>
