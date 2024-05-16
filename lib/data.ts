@@ -36,6 +36,17 @@ export async function fetchPostById(postId: number): Promise<Post> {
   }
 }
 
+export async function fetchPostsByUserId(userId: number): Promise<Post[]> {
+  try {
+    const response = await fetch(`${API_URL}/posts?userId=${userId}`);
+    const posts = await response.json();
+    return posts;
+  } catch (error) {
+    console.error('API Error: ', error);
+    throw new Error('Failed to fetch posts by user ID.');
+  }
+}
+
 // User
 
 /**
