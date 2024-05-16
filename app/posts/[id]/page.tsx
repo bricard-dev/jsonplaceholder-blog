@@ -1,6 +1,5 @@
 import Article from '@/ui/posts/article';
-import { SkeletonPostArticle } from '@/ui/skeletons';
-import { Suspense } from 'react';
+import Comments from '@/ui/posts/comments';
 
 interface PostPageProps {
   params: { id: number };
@@ -9,9 +8,8 @@ interface PostPageProps {
 export default function PostPage({ params: { id } }: PostPageProps) {
   return (
     <>
-      <Suspense fallback={<SkeletonPostArticle />}>
-        <Article postId={id} />
-      </Suspense>
+      <Article postId={id} />
+      <Comments postId={id} />
     </>
   );
 }

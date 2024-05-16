@@ -6,9 +6,13 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 interface PostArticleProps {
   postId: number;
+  className?: string;
 }
 
-export default async function PostArticle({ postId }: PostArticleProps) {
+export default async function PostArticle({
+  postId,
+  className,
+}: PostArticleProps) {
   //
   await new Promise((resolve) => setTimeout(resolve, 1000));
   //
@@ -20,7 +24,7 @@ export default async function PostArticle({ postId }: PostArticleProps) {
   const userLink = getUserLink(post.user.id);
 
   return (
-    <article>
+    <article className="mb-10 sm:mb-20">
       <h1
         className={`mb-4 sm:mb-6 text-3xl ${noto_serif.className} font-bold leading-10`}
       >
