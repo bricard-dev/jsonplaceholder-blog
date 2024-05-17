@@ -56,7 +56,15 @@ export default function PostPagination({
             <SelectTrigger className="gap-1">
               <SelectValue placeholder={currentPage} />
             </SelectTrigger>
-            <SelectContent className="min-w-full">
+            <SelectContent
+              ref={(ref) => {
+                if (!ref) return;
+                ref.ontouchstart = (e) => {
+                  e.preventDefault();
+                };
+              }}
+              className="min-w-full"
+            >
               {Array.from({ length: totalPages }).map((_, index) => (
                 <SelectItem key={index} value={String(index + 1)}>
                   {index + 1}
